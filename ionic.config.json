@@ -1,0 +1,7 @@
+{
+  "name": "elementos_ionic_3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
