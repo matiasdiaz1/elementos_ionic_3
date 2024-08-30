@@ -1,11 +1,15 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="volver"></ion-back-button>
+    </ion-buttons>
     <ion-title>alertas</ion-title>
   </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-text color="primary">
-    <h1>Pagina alertas</h1>
-  </ion-text>
-</ion-content>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+    <ion-text color="primary" class="ion-text-center">
+      <h1>alertas</h1>
+    </ion-text>
+    
+  </ion-content>
