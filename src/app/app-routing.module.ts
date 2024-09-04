@@ -21,7 +21,11 @@ const routes: Routes = [
   {
     path: 'botones',
     loadChildren: () => import('./pages/botones/botones.module').then( m => m.BotonesPageModule)
+  },  {
+    path: 'formulario',
+    loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule)
   },
+
  
 ];
 
