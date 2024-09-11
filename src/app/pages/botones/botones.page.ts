@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BotonesPage implements OnInit {
 
+
+  mensaje:string=""
+  
   constructor() { }
 
   ngOnInit() {
   }
 
+  saludo(){
+
+
+  }
 }

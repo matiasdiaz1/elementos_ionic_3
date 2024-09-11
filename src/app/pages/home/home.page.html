@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" color="light">
+<ion-content class="ion-padding" color="tertiary">
   <ion-text color="primary" class="ion-text-center">
     <h1>Pagina inicio</h1>
   </ion-text>
@@ -14,26 +14,12 @@
       <ion-label>Video Games</ion-label>
     </ion-list-header>
 
-    <ion-item routerLink="/home" detail="true">
-      <ion-icon name="home-outline" slot="start"></ion-icon>
-      <ion-label>Home</ion-label>
+    <ion-item routerLink="{{menulink.link}}" detail="true" *ngForm="let menulink of links">
+      <ion-icon slot="start" name="{{menulink.icono}}"> </ion-icon>
+      <ion-label>{{menulink.label}}</ion-label>
     </ion-item>
 
-    <ion-item routerLink="/botones" detail="true">
-      <ion-icon name="radio-button-on-outline" slot="start"></ion-icon>
-      <ion-label>Botones</ion-label>
-    </ion-item>
 
-    <ion-item routerLink="/alertas" detail="true">
-      <ion-icon slot="start" name="warning-outline" color="warning"> </ion-icon>
-      <ion-label>alertas</ion-label>
-    </ion-item>
-
-    <ion-item routerLink="/formulario" detail="true">
-      <ion-icon slot="start" name="information-circle-outline"></ion-icon>
-
-      <ion-label>formulario</ion-label>
-    </ion-item>
 
   </ion-list>
 </ion-content>
