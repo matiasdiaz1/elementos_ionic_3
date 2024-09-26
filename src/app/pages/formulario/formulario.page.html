@@ -1,8 +1,8 @@
-<app-encabezado titulo="formulario"></app-encabezado>
+<app-encabezado titulo="Inicio Sesión"></app-encabezado>
 
 <ion-content class="ion-padding">
   <ion-text color="primary" class="ion-text-center">
-    <h1>Formulario</h1>
+    <h1>Inicio Sesión</h1>
   </ion-text>
 
   <form #miForm="ngForm" (ngSubmit)="iniciar_sesion()">
@@ -10,15 +10,16 @@
       <ion-item>
         <ion-input required type="text" label="Nombre de Usuario"
          labelPlacement="floating" 
-         placeholder="usuario"
-         [(ngModel)]="usr.username"
-         name="nom_usuario_input"></ion-input>
+         placeholder="Nombre de Usuario"
+         [(ngModel)]="usuario.username"
+         name="username_input"></ion-input>
       </ion-item>
+
       <ion-item>
         <ion-input required type="password" label="Contraseña" 
         labelPlacement="floating"
-        [(ngModel)]="usr.password"
-        name="usr_pass_input"  
+        [(ngModel)]="usuario.password"
+        name="password_input"  
         placeholder="***********"></ion-input>
       </ion-item>
 
@@ -27,9 +28,4 @@
       </ion-button>
     </ion-list>
   </form>
-  <ion-text color="tertiary">
-    <h1>{{miForm.valid}}</h1>
-  </ion-text>
-
-
 </ion-content>

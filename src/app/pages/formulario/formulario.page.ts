@@ -10,47 +10,40 @@ import { UsuarioLog } from 'src/app/interfaces/i_usuario';
 })
 export class FormularioPage implements OnInit {
 
-  //username:string="" ya no sirve
+  usuario: UsuarioLog = {
+    username: '',
+    password: ''
+  };
 
-  usr:UsuarioLog={
-    username:'',
-    password:''
+  constructor(private router: Router, private alertController: AlertController) { }
 
-  }
-  constructor(private router:Router, private alertController:AlertController) { }
+  ngOnInit() { }
 
-  ngOnInit() {
-  }
-
-  iniciar_sesion(){
-    console.log("Iniciar sesion");
-    if(this.usr.username=="waco" && this.usr.password=="123"){
-      this.router.navigate(["/home"]);
-    }
-    else{
-      this.alerta();
+  iniciar_sesion() {
+    if (this.usuario.username === "profesor1" && this.usuario.password === "prof123") {
+      this.router.navigate(["/home-profesor"]);
+    } else if (this.usuario.username === "alumno1" && this.usuario.password === "alum123") {
+      this.router.navigate(["/home-alumno"]);
+    } else {
+      this.alertaAccesoDenegado();
     }
   }
 
-
-  async alerta(){
-
-   
+  async alertaAccesoDenegado() {
     const alert = await this.alertController.create({
-      header: 'Acceso denegado',
-      subHeader: 'Usuario y/o contraseña incorrecta',
-      message: 'chao!!!!',
-      backdropDismiss:false,
-      buttons: [ {
-        text:"Aceptar",
-        cssClass:'btn-verde',
-        handler:()=>{
-          console.log("Apreto aceptar desde controller");
+      header: "Acceso Denegado",
+      subHeader: "Nombre de usuario o contraseña incorrectos",
+      message: "Por favor, verifica tus credenciales e intenta nuevamente.",
+      cssClass: 'alerta-acceso-denegado',
+      buttons: [{
+        text: "Reintentar",
+        cssClass: 'btn-reintentar',
+        handler: () => {
+          // Acción al presionar "Reintentar"
         }
-      },],
+      }],
     });
 
     await alert.present();
   }
-
 }
