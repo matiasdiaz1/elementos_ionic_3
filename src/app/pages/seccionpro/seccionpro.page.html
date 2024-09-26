@@ -1,15 +1,15 @@
-<ion-content class="ion-padding">
-  <ion-header class="full-screen-header">
-    <ion-toolbar color="tertiary">
-      <ion-title class="ion-text-center">Secciones</ion-title>
-      <ion-buttons slot="end">
-        <ion-button (click)="openProfileMenu()">
-          <ion-icon slot="icon-only" name="person" class="large-icon black-icon"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+<ion-header class="full-screen-header">
+  <ion-toolbar color="tertiary">
+    <ion-title class="ion-text-center">Secciones</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openProfileMenu()">
+        <ion-icon slot="icon-only" name="person" class="large-icon black-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content class="ion-padding" id="main-content-secciones">
   <div class="center-content">
     <ion-text color="primary" class="ion-text-center">
       <h1>Bienvenido, {{ nombreUsuario }}</h1>
@@ -26,21 +26,19 @@
       </ion-row>
     </ion-grid>
   </div>
-
-  <ion-menu side="end" menuId="profile-menu" contentId="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Menú</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item button (click)="cerrarSesion()">
-          <ion-label>Cerrar Sesión</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
-  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-content>
+
+<ion-menu side="end" menuId="profile-menu-secciones" contentId="main-content-secciones">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item button (click)="cerrarSesion()">
+        <ion-label>Cerrar Sesión</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>

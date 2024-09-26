@@ -42,6 +42,6 @@ export class SeccionproPage implements OnInit {
   }
 
   openProfileMenu() {
-    this.menu.open('profile-menu');
+    this.menu.open('profile-menu-secciones');
   }
 }
