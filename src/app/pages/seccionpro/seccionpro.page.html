@@ -1,21 +1,46 @@
-<app-encabezado titulo="Seccion"></app-encabezado>
 <ion-content class="ion-padding">
-  <ion-text color="primary" class="ion-text-center">
-    <h1>Bienvenido</h1>
-    <h2>Selecciona una sección</h2>
-  </ion-text>
-
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12" size-md="6" *ngFor="let seccion of secciones">
-        <ion-button expand="block" fill="clear" (click)="seleccionarSeccion(seccion)">
-          {{ seccion }}
+  <ion-header class="full-screen-header">
+    <ion-toolbar color="tertiary">
+      <ion-title class="ion-text-center">Secciones</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="openProfileMenu()">
+          <ion-icon slot="icon-only" name="person" class="large-icon black-icon"></ion-icon>
         </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
-  <ion-button expand="block" fill="solid" color="primary" (click)="cerrarSesion()">
-    Cerrar Sesión
-  </ion-button>
+  <div class="center-content">
+    <ion-text color="primary" class="ion-text-center">
+      <h1>Bienvenido, {{ nombreUsuario }}</h1>
+      <h2>Seleccione una sección</h2>
+    </ion-text>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="6" *ngFor="let seccion of secciones">
+          <ion-button expand="block" fill="clear" (click)="seleccionarSeccion(seccion)">
+            {{ seccion }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-menu side="end" menuId="profile-menu" contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item button (click)="cerrarSesion()">
+          <ion-label>Cerrar Sesión</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-content>

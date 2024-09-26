@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-seccionpro',
@@ -17,7 +18,7 @@ export class SeccionproPage implements OnInit {
     'Sección 5'
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private menu: MenuController) { }
 
   ngOnInit() {
     this.obtenerNombreUsuario();
@@ -38,5 +39,9 @@ export class SeccionproPage implements OnInit {
   cerrarSesion() {
     localStorage.removeItem('usuario');
     this.router.navigate(['/home']);
+  }
+
+  openProfileMenu() {
+    this.menu.open('profile-menu');
   }
 }

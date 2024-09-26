@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
   ngOnInit() { }
 
   iniciar_sesion() {
-    if (this.usuario.username === "profesor1" && this.usuario.password === "prof123") {
+    if (this.usuario.username === "profesor2" && this.usuario.password === "prof123") {
       localStorage.setItem('usuario', JSON.stringify(this.usuario));
       this.router.navigate(["/seccionpro"]);
     } else if (this.usuario.username === "alumno1" && this.usuario.password === "alum123") {
