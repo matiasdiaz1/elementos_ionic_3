@@ -14,10 +14,13 @@
 
 <ion-content class="ion-padding" id="main-content">
   <div class="ion-text-center" style="margin-top: 50px;">
+    <div *ngIf="qrCodeUrl" class="ion-text-center" style="margin-bottom: 20px;">
+      <img [src]="qrCodeUrl" alt="Código QR generado" />
+    </div>
     <ion-button (click)="generateQRCode()">Generar Código QR</ion-button>
   </div>
-  <div *ngIf="qrCodeUrl" class="ion-text-center">
-    <img [src]="qrCodeUrl" alt="Código QR generado" />
+  <div class="ion-text-center" style="margin-top: 20px;">
+    <ion-button (click)="verListaAlumnos()">Lista de alumnos</ion-button>
   </div>
 </ion-content>
 

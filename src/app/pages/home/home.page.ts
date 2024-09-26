@@ -30,7 +30,10 @@ export class HomePage implements OnInit {
       this.alertaAccesoDenegado();
     }
   }
-  
+
+  irARestablecerContrasena() {
+    this.router.navigate(['/restablecer-contrasena']);
+  }
 
   async alertaAccesoDenegado() {
     const alert = await this.alertController.create({

@@ -1,0 +1,30 @@
+<ion-header class="full-screen-header">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Restablecer Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-text color="primary" class="ion-text-center">
+    <h1 style="font-weight: bold;">Restablecer Contraseña</h1>
+  </ion-text>
+
+  <form #resetForm="ngForm" (ngSubmit)="restablecerContrasena()">
+    <ion-list>
+      <ion-item>
+        <ion-input required type="email" label="Correo Electrónico"
+          labelPlacement="floating" 
+          placeholder="Correo Electrónico"
+          [(ngModel)]="email"
+          name="email_input"></ion-input>
+      </ion-item>
+
+      <ion-button type="submit" expand="block" fill="solid" [disabled]="resetForm.invalid">
+        Restablecer Contraseña
+      </ion-button>
+    </ion-list>
+  </form>
+</ion-content>

@@ -34,5 +34,10 @@ export class ServicioproPage {
   openProfileMenu() {
     this.menu.open('profile-menu');
   }
+
+  verListaAlumnos() {
+    // Lógica para ver la lista de alumnos
+    console.log('Ver lista de alumnos');
+  }
 }
 

@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'serviciopro',
     loadChildren: () => import('./pages/serviciopro/serviciopro.module').then( m => m.ServicioproPageModule)
+  },  {
+    path: 'restablecer-contrasena',
+    loadChildren: () => import('./pages/restablecer-contrasena/restablecer-contrasena.module').then( m => m.RestablecerContrasenaPageModule)
   },
+
 
 
 
