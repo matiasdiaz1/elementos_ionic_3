@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'alertas',
     loadChildren: () => import('./pages/alertas/alertas.module').then( m => m.AlertasPageModule)
-  },  {
+  },
+  {
     path: 'seccionpro',
     loadChildren: () => import('./pages/seccionpro/seccionpro.module').then( m => m.SeccionproPageModule)
   },
