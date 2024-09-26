@@ -1,0 +1,21 @@
+<app-encabezado titulo="Seccion"></app-encabezado>
+<ion-content class="ion-padding">
+  <ion-text color="primary" class="ion-text-center">
+    <h1>Bienvenido</h1>
+    <h2>Selecciona una sección</h2>
+  </ion-text>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let seccion of secciones">
+        <ion-button expand="block" fill="clear" (click)="seleccionarSeccion(seccion)">
+          {{ seccion }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button expand="block" fill="solid" color="primary" (click)="cerrarSesion()">
+    Cerrar Sesión
+  </ion-button>
+</ion-content>

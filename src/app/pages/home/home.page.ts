@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Menulink } from 'src/app/interfaces/menulink';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { UsuarioLog } from 'src/app/interfaces/i_usuario';
 
 @Component({
   selector: 'app-home',
@@ -8,28 +10,43 @@ import { Menulink } from 'src/app/interfaces/menulink';
 })
 export class HomePage implements OnInit {
 
+  usuario: UsuarioLog = {
+    username: '',
+    password: ''
+  };
 
-  links:Menulink[]=[
-    {
-      link:'/botones',
-      icono:'radio-button-on-outline',
-      label:'botones'
-    },
-    {
-      link:'/alertas',
-      icono:'warning-outline',
-      label:'alertas'
-    },
-    {
-      link:'/formulario',
-      icono:'reader-outline',
-      label:'formulario'
+  constructor(private router: Router, private alertController: AlertController) { }
+
+  ngOnInit() { }
+
+  iniciar_sesion() {
+    if (this.usuario.username === "profesor1" && this.usuario.password === "prof123") {
+      localStorage.setItem('usuario', JSON.stringify(this.usuario));
+      this.router.navigate(["/seccionpro"]);
+    } else if (this.usuario.username === "alumno1" && this.usuario.password === "alum123") {
+      localStorage.setItem('usuario', JSON.stringify(this.usuario));
+      this.router.navigate(["/home-alumno"]);
+    } else {
+      this.alertaAccesoDenegado();
     }
-  ]
-
-  constructor() { }
-
-  ngOnInit() {
   }
+  
 
+  async alertaAccesoDenegado() {
+    const alert = await this.alertController.create({
+      header: "Acceso Denegado",
+      subHeader: "Nombre de usuario o contraseña incorrectos",
+      message: "Por favor, verifica tus credenciales e intenta nuevamente.",
+      cssClass: 'alerta-acceso-denegado',
+      buttons: [{
+        text: "Reintentar",
+        cssClass: 'btn-reintentar',
+        handler: () => {
+          // Acción al presionar "Reintentar"
+        }
+      }],
+    });
+
+    await alert.present();
+  }
 }

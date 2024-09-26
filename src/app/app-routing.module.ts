@@ -18,11 +18,16 @@ const routes: Routes = [
   {
     path: 'alertas',
     loadChildren: () => import('./pages/alertas/alertas.module').then( m => m.AlertasPageModule)
+  },  {
+    path: 'seccionpro',
+    loadChildren: () => import('./pages/seccionpro/seccionpro.module').then( m => m.SeccionproPageModule)
   },
   {
-    path: 'formulario',
-    loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule)
+    path: 'serviciopro',
+    loadChildren: () => import('./pages/serviciopro/serviciopro.module').then( m => m.ServicioproPageModule)
   },
+
+
 
 ];
 
