@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { IonicModule } from '@ionic/angular';
@@ -6,10 +6,10 @@ import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
-  declarations: [EncabezadoComponent],  
+  declarations: [EncabezadoComponent],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
   ],
   exports:[EncabezadoComponent]
 })

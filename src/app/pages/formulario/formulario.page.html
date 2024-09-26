@@ -1,46 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home" text="volver"></ion-back-button>
-    </ion-buttons>
-    <ion-title>foormulario</ion-title>
-  </ion-toolbar>
-  </ion-header>
-  
-  <ion-content class="ion-padding">
-    <ion-text color="primary" class="ion-text-center">
-      <h1>formulario</h1>
-    </ion-text>
-    
+<app-encabezado titulo="formulario"></app-encabezado>
+
+<ion-content class="ion-padding">
+  <ion-text color="primary" class="ion-text-center">
+    <h1>Formulario</h1>
+  </ion-text>
+
+  <form #miForm="ngForm" (ngSubmit)="iniciar_sesion()">
+    <ion-list>
+      <ion-item>
+        <ion-input required type="text" label="Nombre de Usuario"
+         labelPlacement="floating" 
+         placeholder="usuario"
+         [(ngModel)]="usr.username"
+         name="nom_usuario_input"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input required type="password" label="Contraseña" 
+        labelPlacement="floating"
+        [(ngModel)]="usr.password"
+        name="usr_pass_input"  
+        placeholder="***********"></ion-input>
+      </ion-item>
+
+      <ion-button type="submit" expand="block" fill="solid" [disabled]="miForm.invalid">
+        Iniciar sesión
+      </ion-button>
+    </ion-list>
+  </form>
+  <ion-text color="tertiary">
+    <h1>{{miForm.valid}}</h1>
+  </ion-text>
 
 
-  <ion-list [inset]="true" lines="full" mode="ios">
-    <ion-list-header mode="ios" color="primary">
-      <ion-label>Video Games</ion-label>
-    </ion-list-header>
-
-    <ion-item routerLink="/home" detail="true">
-      <ion-icon name="home-outline" slot="start"></ion-icon>
-      <ion-label>Home</ion-label>
-    </ion-item>
-
-    <ion-item routerLink="/botones" detail="true">
-      <ion-icon name="radio-button-on-outline" slot="start"></ion-icon>
-      <ion-label>Botones</ion-label>
-    </ion-item>
-
-    <ion-item routerLink="/alertas" detail="true">
-      <ion-icon slot="start" name="warning-outline" color="warning"> </ion-icon>
-      <ion-label>alertas</ion-label>
-    </ion-item>
-
-    
-    <ion-item routerLink="/formulario" detail="true">
-      <ion-icon slot="start" name="information-circle-outline"></ion-icon>
-
-      <ion-label>formulario</ion-label>
-
-    </ion-item>
-
-  </ion-list>
 </ion-content>
