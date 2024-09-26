@@ -34,6 +34,7 @@ export class SeccionproPage implements OnInit {
 
   seleccionarSeccion(seccion: string) {
     console.log(`Seleccionaste: ${seccion}`);
+    this.router.navigate(['/serviciopro']);
   }
 
   cerrarSesion() {
