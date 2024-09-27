@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">Servicios Profesores</ion-title>
+    <ion-title class="ion-text-center">Servicios Alumno</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="openProfileMenu()">
         <ion-icon slot="icon-only" name="person" class="large-icon black-icon"></ion-icon>
@@ -14,17 +14,11 @@
 
 <ion-content class="ion-padding" id="main-content">
   <div class="ion-text-center" style="margin-top: 50px;">
-    <div *ngIf="qrCodeUrl" class="ion-text-center" style="margin-bottom: 20px;">
-      <img [src]="qrCodeUrl" alt="Código QR generado" />
-    </div>
-    <ion-button (click)="generateQRCode()">Generar Código QR</ion-button>
-  </div>
-  <div class="ion-text-center" style="margin-top: 20px;">
-    <ion-button (click)="verListaAlumnos()">Lista de alumnos</ion-button>
+    <p>Contenido de la página de servicios para alumnos</p>
   </div>
 </ion-content>
 
-<ion-menu side="end" menuId="profile-menu" contentId="main-content">
+<ion-menu side="end" menuId="profile-menu-alum" contentId="main-content">
   <ion-header>
     <ion-toolbar>
       <ion-title>Menú</ion-title>

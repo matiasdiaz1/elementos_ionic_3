@@ -30,6 +30,14 @@ const routes: Routes = [
     path: 'restablecer-contrasena',
     loadChildren: () => import('./pages/restablecer-contrasena/restablecer-contrasena.module').then( m => m.RestablecerContrasenaPageModule)
   },
+  {
+    path: 'seccionalum',
+    loadChildren: () => import('./pages/seccionalum/seccionalum.module').then( m => m.SeccionalumPageModule)
+  },
+  {
+    path: 'servicioalum',
+    loadChildren: () => import('./pages/servicioalum/servicioalum.module').then( m => m.ServicioalumPageModule)
+  },
 
 
 

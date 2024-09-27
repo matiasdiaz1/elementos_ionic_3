@@ -25,7 +25,8 @@ export class HomePage implements OnInit {
       this.router.navigate(["/seccionpro"]);
     } else if (this.usuario.username === "alumno1" && this.usuario.password === "alum123") {
       localStorage.setItem('usuario', JSON.stringify(this.usuario));
-      this.router.navigate(["/home-alumno"]);
+      // Redirige a la página 'seccionalum' en lugar de 'home-alumno'
+      this.router.navigate(["/seccionalum"]);
     } else {
       this.alertaAccesoDenegado();
     }
@@ -38,8 +39,7 @@ export class HomePage implements OnInit {
   async alertaAccesoDenegado() {
     const alert = await this.alertController.create({
       header: "Acceso Denegado",
-      subHeader: "Nombre de usuario o contraseña incorrectos",
-      message: "Por favor, verifica tus credenciales e intenta nuevamente.",
+      message: "Nombre de usuario o contraseña incorrectos",
       cssClass: 'alerta-acceso-denegado',
       buttons: [{
         text: "Reintentar",
