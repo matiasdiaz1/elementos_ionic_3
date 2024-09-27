@@ -11,6 +11,8 @@ import { MenuController } from '@ionic/angular';
 export class ServicioproPage {
 
   qrCodeUrl: string = '';
+  mostrarListaAlumnos: boolean = false;
+  alumnos: string[] = ['Juan Pérez', 'María López', 'Carlos García', 'Ana Martínez'];
 
   constructor(private router: Router, private menu: MenuController) { }
 
@@ -30,14 +32,11 @@ export class ServicioproPage {
     this.router.navigate(['/home']);
   }
 
-
   openProfileMenu() {
     this.menu.open('profile-menu');
   }
 
-  verListaAlumnos() {
-    // Lógica para ver la lista de alumnos
-    console.log('Ver lista de alumnos');
+  toggleListaAlumnos() {
+    this.mostrarListaAlumnos = !this.mostrarListaAlumnos;
   }
 }
-

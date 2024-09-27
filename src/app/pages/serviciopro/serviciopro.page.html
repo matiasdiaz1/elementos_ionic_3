@@ -20,8 +20,13 @@
     <ion-button (click)="generateQRCode()">Generar Código QR</ion-button>
   </div>
   <div class="ion-text-center" style="margin-top: 20px;">
-    <ion-button (click)="verListaAlumnos()">Lista de alumnos</ion-button>
+    <ion-button (click)="toggleListaAlumnos()">Lista de alumnos</ion-button>
   </div>
+  <ion-list *ngIf="mostrarListaAlumnos" class="alumnos-list">
+    <ion-item *ngFor="let alumno of alumnos">
+      <ion-label>{{ alumno }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <ion-menu side="end" menuId="profile-menu" contentId="main-content">
