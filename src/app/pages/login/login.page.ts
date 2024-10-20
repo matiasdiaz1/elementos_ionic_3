@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastButton, ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/interfaces/i_usuario';
 import { LocaldbService } from 'src/app/services/almacenamiento.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class HomePage implements OnInit {
+export class LoginPage implements OnInit {
 
   user: Usuario = {
     username: '',
@@ -18,35 +18,37 @@ export class HomePage implements OnInit {
     apellido: '',
   }
 
-  constructor(
-    private db: LocaldbService,
+  constructor(private db: LocaldbService,
     private router: Router,
-    private toastController: ToastController
+    private toastController:ToastController,
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   logear() {
     console.log("Logear");
     let buscado = this.db.get(this.user.username);
+    console.log(buscado);
     buscado.then(datos => {
       if (datos !== null) {
         if (this.user.username === datos.username && this.user.password === datos.password) {
-          this.router.navigate(['/dashboard']); // Redirige a una página de bienvenida o dashboard
-        } else {
-          this.presentToast('top');
+          this.router.navigate(['/home']);
         }
-      } else {
-        console.log('Usuario no encontrado');
-        this.presentToast('top');
       }
-    });
+      else{
+         console.log('chao');
+         this.presentToast('top');
+      }
+     
+    })
+ 
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom') {
     const toast = await this.toastController.create({
       header: 'Error',
-      message: 'El usuario y/o contraseña son incorrectos',
+      message: 'El usuario y/o contraseña incorrecta',
       color: 'dark',
       cssClass: 'toastext',
       duration: 2000,
@@ -55,4 +57,7 @@ export class HomePage implements OnInit {
 
     await toast.present();
   }
+
 }
+
+

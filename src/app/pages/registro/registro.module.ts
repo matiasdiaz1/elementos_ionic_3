@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SeccionalumPageRoutingModule } from './seccionalum-routing.module';
+import { RegistroPageRoutingModule } from './registro-routing.module';
 
-import { SeccionalumPage } from './seccionalum.page';
+import { RegistroPage } from './registro.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SeccionalumPageRoutingModule
+    RegistroPageRoutingModule
   ],
-  declarations: [SeccionalumPage]
+  declarations: [RegistroPage]
 })
-export class SeccionalumPageModule {}
+export class RegistroPageModule {}

@@ -21,21 +21,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/serviciopro/serviciopro.module').then(m => m.ServicioproPageModule)
   },
   {
-    path: 'restablecer-contrasena',
-    loadChildren: () => import('./pages/restablecer-contrasena/restablecer-contrasena.module').then(m => m.RestablecerContrasenaPageModule)
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'seccionalum',
-    loadChildren: () => import('./pages/seccionalum/seccionalum.module').then(m => m.SeccionalumPageModule)
+    path: 'registro',
+    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
   },
-  {
-    path: 'servicioalum',
-    loadChildren: () => import('./pages/servicioalum/servicioalum.module').then(m => m.ServicioalumPageModule)
-  },
-  {
-    path: '**', 
-    loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundPageModule)
-  }
+
+
+
+
 ];
 
 @NgModule({

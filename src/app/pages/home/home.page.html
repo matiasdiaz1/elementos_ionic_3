@@ -1,33 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      ComidAPP - Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding">
-  <ion-text color="primary" class="ion-text-center">
-    <h1 style="font-weight: bold;">¡Bienvenido! Inicia sesión para continuar.</h1>
+  <ion-text color="secondary" class="ion-text-center">
+    <h1>Iniciar Sesión</h1>
   </ion-text>
+  
+  <form #formLogin="ngForm" (ngSubmit)="logear()">
+    <ion-item>
+      <ion-input labelPlacement="floating" label="Usuario" required name="usuario" type="text" [(ngModel)]="user.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" label="Contraseña" required name="password" type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    
+    <ion-button expand="full" color="tertiary" type="submit" [disabled]="formLogin.invalid">
+      <ion-text color="light">
+        Iniciar Sesión
+      </ion-text>
+    </ion-button>
 
-  <form #miForm="ngForm" (ngSubmit)="iniciar_sesion()">
-    <ion-list>
-      <ion-item>
-        <ion-input required type="text" label="Nombre de Usuario"
-          labelPlacement="floating" 
-          placeholder="Nombre de Usuario"
-          [(ngModel)]="usuario.username"
-          name="username_input"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-input required type="password" label="Contraseña" 
-          labelPlacement="floating"
-          [(ngModel)]="usuario.password"
-          name="password_input"  
-          placeholder="***********"></ion-input>
-      </ion-item>
-
-      <ion-button type="submit" expand="block" fill="solid" [disabled]="miForm.invalid">
-        Iniciar sesión
-      </ion-button>
-    </ion-list>
+    <ion-text color="tertiary" class="ion-text-center ion-padding" routerLink="/registro">
+      <p>¿No tienes cuenta? <strong>Crear cuenta</strong></p>
+    </ion-text>
   </form>
-
-  <div class="ion-text-center" style="margin-top: 20px;">
-    <a (click)="irARestablecerContrasena()">¿Olvidaste tu contraseña?</a>
-  </div>
 </ion-content>
